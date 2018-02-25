@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Hello world!'
+  'Hello world! via ' + ENV['HOSTNAME']
 end
