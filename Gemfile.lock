@@ -1,6 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    fluent-logger (0.7.2)
+      msgpack (>= 1.0.0, < 2)
+    msgpack (1.2.4)
     mustermann (1.0.2)
     rack (2.0.4)
     rack-protection (2.0.1)
@@ -16,6 +19,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fluent-logger
   sinatra
 
 BUNDLED WITH
