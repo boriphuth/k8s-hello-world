@@ -20,6 +20,10 @@ spec:
           image: manabusakai/k8s-hello-world:0.0.2
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
         - name: fluentd
           image: fluent/fluentd:v0.12
           ports:
