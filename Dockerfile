@@ -1,4 +1,4 @@
-FROM ruby:2.5-slim
+FROM ruby:2.5-slim AS builder
 
 # for msgpack gem
 RUN apt-get update && \
@@ -9,6 +9,12 @@ COPY . /var/app
 WORKDIR /var/app
 
 RUN bundle install
+
+FROM ruby:2.5-slim
+
+COPY --from=builder /var/app /var/app
+COPY --from=builder /usr/local/bundle /usr/local/bundle
+WORKDIR /var/app
 
 EXPOSE 8080
 CMD [ "./script/server.sh" ]
