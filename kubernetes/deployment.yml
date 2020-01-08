@@ -1,21 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: hello
-  name: hello
+  # Unique key of the Deployment instance
+  name: deployment-example
 spec:
+  # 3 Pods should exist at all times.
   replicas: 3
   selector:
     matchLabels:
-      app: hello
+      app: nginx
   template:
     metadata:
       labels:
-        app: hello
+        # Apply this label to pods and default
+        # the Deployment label selector to this value
+        app: nginx
     spec:
       containers:
-        - name: hello
+      - name: nginx
+        # Run this image
+        image: nginx:1.10
+      - name: hello
           image: manabusakai/k8s-hello-world:0.0.2
           ports:
             - containerPort: 8080
