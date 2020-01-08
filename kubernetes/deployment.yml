@@ -8,13 +8,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ruby
+      app: hello
   template:
+    metadata:
       labels:
-        app: ruby
+        app: hello
     spec:
       containers:
-        - name: ruby
+        - name: hello
           image: manabusakai/k8s-hello-world:0.0.2
           ports:
             - containerPort: 8080
