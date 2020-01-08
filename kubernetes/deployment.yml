@@ -8,24 +8,15 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: hello
+      app: nginx
   template:
     metadata:
       labels:
         # Apply this label to pods and default
         # the Deployment label selector to this value
-        app: hello
-  spec:
-    containers:
-      - name: hello
-        image: manabusakai/k8s-hello-world:0.0.2
-        ports:
-            - containerPort: 8080
-            readinessProbe:
-              httpGet:
-                path: /
-                port: 8080
-      - name: fluentd
-        image: fluent/fluentd:v0.12
-        ports:
-            - containerPort: 24224
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        # Run this image
+        image: nginx:1.10
