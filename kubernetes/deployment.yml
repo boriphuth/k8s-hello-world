@@ -1,19 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-hello-world-deployment
+  name: k8s-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: k8s-hello-world
+      app: hello
   template:
-    metadata:
       labels:
-        app: k8s-hello-world
+        app: hello
     spec:
       containers:
-        - name: k8s-hello-world
+        - name: hello
           image: manabusakai/k8s-hello-world:0.0.2
           ports:
             - containerPort: 8080
