@@ -1,19 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-hello-world
-  labels:
-    app: ruby
+  name: k8s-hello-world-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ruby
+      app: k8s-hello-world
   template:
     metadata:
-      name: k8s-hello-world
       labels:
-        app: ruby
+        app: k8s-hello-world
     spec:
       containers:
         - name: k8s-hello-world
